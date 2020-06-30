@@ -10,10 +10,10 @@ import shutil
 chisel3dir = os.path.abspath(
     os.path.join(os.path.dirname(os.path.realpath(__file__)), "..")
 )
-if os.path.exists(os.path.join(chisel3dir, "chisel3")):
+if os.path.exists(os.path.join(chisel3dir, "chisel3_jar")):
     sys.path[0:0] = [chisel3dir]
 
-from chisel3 import __version__
+from chisel3_jar import __version__
 
 def get_resource_name(name):
     return pkg_resources.resource_filename(__name__, name)
@@ -23,7 +23,7 @@ def get_resource_string(name):
 
 source = get_resource_name('jars/chisel3.jar')
 
-class Chisel3:
+class Chisel3Jar:
     def create(self, args):
         jars_path = args.dest_path
         if not os.path.exists(jars_path):
@@ -58,7 +58,7 @@ def parse_args():
         return None
 
 def create(args):
-    sc = Chisel3()
+    sc = Chisel3Jar()
     sc.create(args)
 
 def main():
