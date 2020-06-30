@@ -1,0 +1,12 @@
+name: Chisel3 Jar Package CI
+language: python
+script:
+  - make prepare
+  - python setup.py bdist_wheel
+deploy:
+  provider: pypi
+  username: $PYPI_NAME
+  password: $PYPI_PW
+  skip_cleanup: true
+  on:
+    tags: true
