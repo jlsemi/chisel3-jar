@@ -3,5 +3,5 @@ try:
 except ImportError:
     __version__ = "unknown"
 
-import chisel3_jar import main
+from chisel3_jar import main
 source = main.source
