@@ -4,9 +4,7 @@ import argparse
 import os
 import sys
 import pkg_resources
-import tarfile
 import shutil
-import yaml
 
 # Check if this is run from a local installation
 chisel3dir = os.path.abspath(
