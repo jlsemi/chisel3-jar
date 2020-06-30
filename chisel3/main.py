@@ -21,13 +21,15 @@ def get_resource_name(name):
 def get_resource_string(name):
     return pkg_resources.resource_string(__name__, name)
 
+source = get_resource_name('jars/chisel3.jar')
+
 class Chisel3:
     def create(self, args):
         jars_path = args.dest_path
         if not os.path.exists(jars_path):
             os.mkdir(jars_path)
 
-        shutil.copyfile(get_resource_name('jars/chisel3.jar'), os.path.join(jars_path, 'chisel3.jar'))
+        shutil.copyfile(source, os.path.join(jars_path, 'chisel3.jar'))
 
 def parse_args():
     parser = argparse.ArgumentParser()
